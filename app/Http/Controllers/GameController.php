@@ -20,6 +20,11 @@ class GameController extends Controller
     {
         $player1 = $request->player1;
         $player2 = $request->player2;
+
+        if($player1 == $player2) {
+            return redirect()->back()->with("created", true);
+        }
+
         return view('game.play', compact('player1', 'player2'));
     }
     
